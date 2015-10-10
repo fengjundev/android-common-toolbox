@@ -15,20 +15,6 @@
  */
 package com.feng.android.common.util;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-
-import java.io.FileFilter;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.security.MessageDigest;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Pattern;
-
 import android.app.ActivityManager;
 import android.app.ActivityManager.MemoryInfo;
 import android.app.ActivityManager.RunningAppProcessInfo;
@@ -45,6 +31,19 @@ import android.content.pm.Signature;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileFilter;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.security.MessageDigest;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
 import javax.security.auth.x500.X500Principal;
 
 public final class AppUtils {
@@ -55,6 +54,18 @@ public final class AppUtils {
 
     private AppUtils() {
         throw new AssertionError();
+    }
+
+    /**
+     * Restart application (just relauch the first page of package)
+     *
+     *
+     * @param context Context
+     */
+    public static void restartApplication(Context context) {
+        final Intent intent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        context.startActivity(intent);
     }
 
     /**
