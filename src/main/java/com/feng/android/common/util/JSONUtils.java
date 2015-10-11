@@ -31,7 +31,7 @@ public final class JSONUtils {
     public static boolean isPrintException = true;
 
     private JSONUtils() {
-        throw new Error("Do not need instantiate!");
+        throw new AssertionError();
     }
 
     /**
@@ -660,7 +660,7 @@ public final class JSONUtils {
      * @return <ul>
      *         <li>if jsonObject is null, return defaultValue</li>
      *         <li>if jsonData {@link JSONObject#JSONObject(String)} exception, return defaultValue</li>
-     *         <li>return {@link JSONUtils#getJSONArray(JSONObject, String, JSONObject)}</li>
+     *         <li>return {@link JSONUtils#getJSONArray(String, String, JSONArray)}</li>
      *         </ul>
      */
     public static JSONArray getJSONArray(String jsonData, String key, JSONArray defaultValue) {

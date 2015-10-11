@@ -15,10 +15,11 @@
  */
 package com.feng.android.common.util;
 
-import java.util.Locale;
-import java.util.regex.Pattern;
-
 import android.text.TextUtils;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Locale;
 
 /**
  * 字符串操作工具包 结合android.text.TextUtils使用
@@ -32,6 +33,26 @@ public final class StringUtils{
      */
     private StringUtils() {
         throw new Error("Do not need instantiate!");
+    }
+
+    /**
+     * is null or its length is 0 or it is made by space
+     *
+     * <pre>
+     * isBlank(null) = true;
+     * isBlank(&quot;&quot;) = true;
+     * isBlank(&quot;  &quot;) = true;
+     * isBlank(&quot;a&quot;) = false;
+     * isBlank(&quot;a &quot;) = false;
+     * isBlank(&quot; a&quot;) = false;
+     * isBlank(&quot;a b&quot;) = false;
+     * </pre>
+     *
+     * @param str
+     * @return if string is null or its size is 0 or it is made by space, return true, else return false.
+     */
+    public static boolean isBlank(String str) {
+        return (str == null || str.trim().length() == 0);
     }
 
     /**
@@ -122,6 +143,49 @@ public final class StringUtils{
      */
     public static String addHtmlRedFlag(String string) {
         return "<font color=\"red\">" + string + "</font>";
+    }
+
+    /**
+     * encoded in utf-8
+     *
+     * <pre>
+     * utf8Encode(null)        =   null
+     * utf8Encode("")          =   "";
+     * utf8Encode("aa")        =   "aa";
+     * utf8Encode("啊啊啊啊")   = "%E5%95%8A%E5%95%8A%E5%95%8A%E5%95%8A";
+     * </pre>
+     *
+     * @param str
+     * @return
+     * @throws UnsupportedEncodingException if an error occurs
+     */
+    public static String utf8Encode(String str) {
+        if (!isEmpty(str) && str.getBytes().length != str.length()) {
+            try {
+                return URLEncoder.encode(str, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException("UnsupportedEncodingException occurred. ", e);
+            }
+        }
+        return str;
+    }
+
+    /**
+     * encoded in utf-8, if exception, return defultReturn
+     *
+     * @param str
+     * @param defultReturn
+     * @return
+     */
+    public static String utf8Encode(String str, String defultReturn) {
+        if (!isEmpty(str) && str.getBytes().length != str.length()) {
+            try {
+                return URLEncoder.encode(str, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                return defultReturn;
+            }
+        }
+        return str;
     }
 
 }

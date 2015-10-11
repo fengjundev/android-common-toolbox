@@ -46,6 +46,15 @@ import java.util.regex.Pattern;
 
 import javax.security.auth.x500.X500Principal;
 
+
+/**
+ * AppUtils
+ * <ul>
+ * <li>{@link AppUtils#restartApplication(Context)} </li>
+ * </ul>
+ *
+ * @author <a href="https://github.com/fengjundev" target="_blank">Feng Jun</a>
+ */
 public final class AppUtils {
 
     private static final boolean DEBUG = true;
@@ -74,7 +83,7 @@ public final class AppUtils {
      * @param context 上下文
      * @return 当前版本Code
      */
-    public static int getVerCode(Context context) {
+    public static int getVersionCode(Context context) {
         int verCode = -1;
         try {
             String packageName = context.getPackageName();
@@ -91,7 +100,7 @@ public final class AppUtils {
      * @param context 上下文
      * @return 当前版本信息
      */
-    public static String getVerName(Context context) {
+    public static String getVersionName(Context context) {
         String verName = "";
         try {
             String packageName = context.getPackageName();
@@ -293,8 +302,8 @@ public final class AppUtils {
     /**
      * 将签名字符串转换成需要的32位签名
      *
-     * @param paramArrayOfByte 签名byte数组
      * @return 32位签名字符串
+     * @param paramArrayOfByte 签名byte数组
      */
     private static String hexdigest(byte[] paramArrayOfByte) {
         final char[] hexDigits = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97,

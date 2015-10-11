@@ -15,22 +15,22 @@
  */
 package com.feng.android.common.util;
 
+import android.text.TextUtils;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import android.text.TextUtils;
-
 /**
- * 数据校验
+ * 数据校验(包含手机号码、邮箱等验证)
  *
- * @author jingle1267@163.com
+ * @author fengjun
  */
-public final class RegUtils {
+public final class DataCheckUtils {
 
     /**
      * Don't let anyone instantiate this class.
      */
-    private RegUtils() {
+    private DataCheckUtils() {
         throw new Error("Do not need instantiate!");
     }
 

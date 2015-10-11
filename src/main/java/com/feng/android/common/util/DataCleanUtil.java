@@ -22,12 +22,16 @@ import android.content.Context;
 import android.os.Environment;
 
 /**
- * 本应用数据清除管理器
- * 主要功能有清除内/外缓存，清除数据库，清除sharedPreference，清除files和清除自定义目录
+ * 本应用数据清除工具
+ * 主要功能有：
+ * - 清除内/外缓存
+ * - 清除数据库
+ * - 清除sharedPreference
+ * - 清除files和清除自定义目录
  *
  * @author fengjun
  */
-public class DataCleanManager {
+public class DataCleanUtil {
 
     /**
      * 清除本应用内部缓存(/data/data/com.xxx.xxx/cache)

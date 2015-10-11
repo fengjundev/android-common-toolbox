@@ -46,8 +46,8 @@ import android.text.TextUtils;
  * <p/>
  * <ul>
  * Read or write file
- * <li>{@link #readFile(String)} read file</li>
- * <li>{@link #readFileToList(String)} read file to string list</li>
+ * <li>{@link #readFile(String, String)} read file</li>
+ * <li>{@link #readFileToList(String, String)} read file to string list</li>
  * <li>{@link #writeFile(String, String, boolean)} write file from String</li>
  * <li>{@link #writeFile(String, String)} write file from String</li>
  * <li>{@link #writeFile(String, List, boolean)} write file from String List</li>
