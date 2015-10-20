@@ -15,10 +15,6 @@
  */
 package com.feng.android.common.util;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Paint;
@@ -34,6 +30,10 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ViewUtils
@@ -58,7 +58,7 @@ import android.widget.TextView;
  * <li>{@link ViewUtils#setSearchViewOnClickListener(View, OnClickListener)}</li>
  * </ul>
  *
- * @author jingle1267@163.com
+ * @author fengjun
  */
 public final class ViewUtils {
 
